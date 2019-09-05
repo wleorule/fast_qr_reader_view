@@ -294,6 +294,9 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
             case "toggleFlash":
                 toggleFlash(result);
                 break;
+            case "focusCamera":
+                focusCamera();
+                break;
             case "dispose": {
                 if (camera != null) {
                     camera.dispose();
@@ -416,6 +419,10 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
     void toggleFlash(@NonNull Result result) {
         toggleFlash();
         result.success(null);
+    }
+
+    private void focusCamera(){
+        camera.autoFocus();
     }
 
     private void toggleFlash() {

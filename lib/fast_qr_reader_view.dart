@@ -361,6 +361,18 @@ class QRReaderController extends ValueNotifier<QRReaderValue> {
     }
   }
 
+  Future<Null> focus() async {
+    try {
+      value = value.copyWith(isScanning: false);
+      await _channel.invokeMethod(
+        'focusCamera',
+        <String, dynamic>{'textureId': _textureId},
+      );
+    } on PlatformException catch (e) {
+      throw new QRReaderException(e.code, e.message);
+    }
+  }
+
   /// Start a QR scan.
   ///
   /// Throws a [QRReaderException] if the capture fails.
