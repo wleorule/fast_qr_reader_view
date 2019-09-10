@@ -342,7 +342,7 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
     }
 
 
-    void startScanning(@NonNull Result result) {
+    void startScanning( Result result) {
         camera.scanning = true;
         camera.barcodeScanningProcessor.shouldThrottle.set(false);
         result.success(null);
@@ -408,7 +408,7 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
 //        }
     }
 
-    void stopScanning(@NonNull Result result) {
+    void stopScanning( Result result) {
         stopScanning();
         result.success(null);
     }
@@ -420,7 +420,7 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
 //        camera.imageReader.close();
     }
 
-    void toggleFlash(@NonNull Result result) {
+    void toggleFlash( Result result) {
         toggleFlash();
         result.success(null);
     }
@@ -484,7 +484,7 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
         }
 
         //
-        QrReader(final String cameraName, final String resolutionPreset, final ArrayList<String> formats, @NonNull final Result result) {
+        QrReader(final String cameraName, final String resolutionPreset, final ArrayList<String> formats,final Result result) {
 
             // AVAILABLE FORMATS:
             // enum CodeFormat { codabar, code39, code93, code128, ean8, ean13, itf, upca, upce, aztec, datamatrix, pdf417, qr }
@@ -655,7 +655,7 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
         //
 //
         @SuppressLint("MissingPermission")
-        private void open(@Nullable final Result result) {
+        private void open( final Result result) {
             if (!hasCameraPermission()) {
                 if (result != null)
                     result.error("cameraPermission", "Camera permission not granted", null);
