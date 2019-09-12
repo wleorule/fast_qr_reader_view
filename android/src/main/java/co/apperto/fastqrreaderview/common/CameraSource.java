@@ -336,19 +336,19 @@ public class CameraSource {
 
     setRotation(camera, parameters, requestedCameraId);
 
-    if (requestedAutoFocus) {
-      if (parameters
+   if (parameters
           .getSupportedFocusModes()
           .contains(Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
         parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
       } else {
         Log.i(TAG, "Camera auto focus is not supported on this device.");
       }
-    }
+    
 
-    //parameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-    parameters.setSceneMode(Parameters.SCENE_MODE_BARCODE);
-
+    if(parameters.getSupportedSceneModes().contains(Parameters.SCENE_MODE_BARCODE))
+      parameters.setSceneMode(Parameters.SCENE_MODE_BARCODE);
+    else
+      Log.i(TAG, "Camera auto focus is not supported on this device.");
 
 
     camera.setParameters(parameters);
