@@ -85,7 +85,7 @@ public class CameraSource {
 
   // These values may be requested by the caller.  Due to hardware limitations, we may need to
   // select close, but not exactly the same values for these.
-  private final float requestedFps = 30.0f;
+  private final float requestedFps = 20.0f;
   private final int requestedPreviewWidth = 1280;
   private final int requestedPreviewHeight = 960;
   private final boolean requestedAutoFocus = true;
@@ -339,8 +339,8 @@ public class CameraSource {
     if (requestedAutoFocus) {
       if (parameters
           .getSupportedFocusModes()
-          .contains(Camera.Parameters.FOCUS_MODE_MACRO)) {
-        parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_MACRO);
+          .contains(Parameters.FOCUS_MODE_CONTINUOUS_VIDEO)) {
+        parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
       } else {
         Log.i(TAG, "Camera auto focus is not supported on this device.");
       }
