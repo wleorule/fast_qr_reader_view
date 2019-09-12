@@ -424,7 +424,7 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
     }
 
     private void focusCamera(){
-        camera.autoFocus();
+        //camera.autoFocus();
     }
 
     private void toggleFlash() {
