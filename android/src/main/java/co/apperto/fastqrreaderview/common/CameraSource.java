@@ -346,8 +346,10 @@ public class CameraSource {
       }
     }
 
-    parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_MACRO);
-    //parameters.setSceneMode(Parameters.SCENE_MODE_BARCODE);
+    parameters.setFocusMode(Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+    parameters.setSceneMode(Parameters.SCENE_MODE_BARCODE);
+
+
 
     camera.setParameters(parameters);
 
